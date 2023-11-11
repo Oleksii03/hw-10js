@@ -27,7 +27,6 @@ function onSearchBySubmit (e) {
 
 }
 
-
 btnLoadMore.addEventListener('click', onLoadMore);
 
 function onLoadMore (e) {
