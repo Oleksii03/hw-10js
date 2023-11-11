@@ -6,11 +6,11 @@
 .form {
   display: flex;
   margin: 0 auto;
-  max-width: 400px;
+  max-width: 310px;
   gap: 5px;
 
   &__input {
-    width: 270px;
+    width: 100%;
     padding: 5px;
     padding-left: 20px;
   }
@@ -75,4 +75,19 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.load-more {
+  padding: 5px 10px;
+  margin: 0 auto;
+  display: block;
+  background-color: rgba(80, 84, 95, 0.614);
+  border-radius: 0.9375rem;
+  margin-top: 10px;
+}
+
+.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
 }
