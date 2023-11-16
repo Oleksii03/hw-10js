@@ -1,4 +1,3 @@
-
 export function createMarcup (val) {
   return val.map((el, i) => {
     return `
