@@ -16,9 +16,7 @@ function onSearchBySubmit (e) {
   e.preventDefault();
   inputValue = e.target.elements.search.value;
 
-  if (inputValue === '') {
-    return;
-  }
+  if (inputValue === '') return;
 
   getPhotoQuery(inputValue, page).then(data => {
     listEl.innerHTML = createMarcup(data.hits);
