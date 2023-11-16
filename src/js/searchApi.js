@@ -1,9 +1,10 @@
-import { getPhotoQuery } from "./fetchFn";
+import { getFetchPhoto } from "./fetchFn";
 import { createMarcup } from "./createMarcup";
 
 const formEl = document.querySelector('.js-form');
 const listEl = document.querySelector('.js-list');
 const btnLoadMore = document.querySelector('.js-load-more');
+export const loaderEl = document.querySelector('.js-loader');
 // const btnEl = document.querySelector('.js-form__btn');
 
 let inputValue = '';
@@ -18,7 +19,7 @@ function onSearchBySubmit (e) {
 
   if (inputValue === '') return;
 
-  getPhotoQuery(inputValue, page).then(data => {
+  getFetchPhoto(inputValue, page).then(data => {
     listEl.innerHTML = createMarcup(data.hits);
 
     if (data.totalHits > 20) {
@@ -31,7 +32,7 @@ btnLoadMore.addEventListener('click', onLoadMore);
 
 function onLoadMore (e) {
   page += 1;
-  getPhotoQuery(inputValue, page)
+  getFetchPhoto(inputValue, page)
     .then(data => {
       listEl.insertAdjacentHTML('beforeend', createMarcup(data.hits));
 
