@@ -2,9 +2,9 @@ import { getFetchPhoto } from "./fetchFn";
 import { createMarcup } from "./createMarcup";
 
 const formEl = document.querySelector('.js-form');
-const listEl = document.querySelector('.js-list');
+export const listEl = document.querySelector('.js-list');
 const btnLoadMore = document.querySelector('.js-load-more');
-export const loaderEl = document.querySelector('.js-loader');
+const loaderEl = document.querySelector('.js-loader');
 // const btnEl = document.querySelector('.js-form__btn');
 
 let inputValue = '';
@@ -34,6 +34,10 @@ function onSearchBySubmit (e) {
         btnLoadMore.classList.remove('is-hidden');
       }
     })
+    .catch(err => {
+      listEl.innerHTML = '<h1>Error 404</h1>';
+      console.error(err);
+    })
     .finally(() => {
       loaderEl.classList.add('is-hidden');
     });
@@ -42,6 +46,7 @@ function onSearchBySubmit (e) {
 btnLoadMore.addEventListener('click', onLoadMore);
 
 function onLoadMore (e) {
+  loaderEl.classList.remove('is-hidden');
   page += 1;
   getFetchPhoto(inputValue, page)
     .then(data => {
@@ -50,5 +55,12 @@ function onLoadMore (e) {
       if (data.hits.length < 20) {
         btnLoadMore.classList.add('is-hidden');
       }
+    })
+    .catch(err => {
+      listEl.innerHTML = '<h1>Error 404</h1>';
+      console.error(err);
+    })
+    .finally(() => {
+      loaderEl.classList.add('is-hidden');
     });
 };
