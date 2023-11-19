@@ -1,11 +1,23 @@
-html {
+html,
+body {
   scroll-behavior: smooth;
+  height: 100%;
+}
+
+.wpapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   padding: 0px;
-  background-color: #d1d1d1;
+  background-color: #ffffff;
 }
 
 h1,

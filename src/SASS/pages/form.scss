@@ -84,12 +84,20 @@
 }
 
 .is-hidden {
-  visibility: hidden;
-  pointer-events: none;
-  opacity: 0;
+  display: none;
+}
+
+.footer {
+  padding: 10px;
+  background-color: #1922219e;
+
+  b {
+    color: #ffffff;
+  }
 }
 
 // -------SPINNER---------------------------------
+
 .loader__wrapper {
   position: fixed;
   top: 50%;
@@ -99,11 +107,12 @@
 }
 
 .loader {
-  width: 48px;
-  height: 48px;
-  border: 5px solid;
-  border-color: rgb(189, 66, 13)transparent;
+  width: 50px;
+  height: 50px;
+  border: 10px solid;
+  border-color: rgb(189, 101, 13)transparent;
   border-radius: 50%;
+  background-color: rgba(180, 159, 159, 0.236);
 
   box-sizing: border-box;
   animation: rotation .8s linear infinite;
