@@ -71,24 +71,18 @@ function onLoadMore (e) {
 const throttleScroll = throttle(onScrollBtnOpen, 300);
 
 document.addEventListener('scroll', throttleScroll);
-// btnSearchUp.addEventListener('click', onScrollBtnClose);
+btnSearchUp.addEventListener('click', onScrollBtnClose);
 
 function onScrollBtnOpen (e) {
   console.log(scrollY);
 
-  // if (scrollY <= 0) {
-  //   btnSearchUp.classList.remove('is-visible');
-  // }
-
   if (scrollY > 700) {
     btnSearchUp.classList.add('is-visible');
-    // document.removeEventListener('scroll', throttleScroll);
-  } else if (scrollY === 0) {
-    btnSearchUp.classList.remove('is-visible');
+    document.removeEventListener('scroll', throttleScroll);
   }
 };
 
-// function onScrollBtnClose (e) {
-//   btnSearchUp.classList.remove('is-visible');
-//   document.addEventListener('scroll', throttleScroll);
-// }
+function onScrollBtnClose (e) {
+  btnSearchUp.classList.remove('is-visible');
+  document.addEventListener('scroll', throttleScroll);
+}
