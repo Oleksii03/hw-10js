@@ -8,6 +8,18 @@ const btnLoadMore = document.querySelector('.js-load-more');
 const loaderEl = document.querySelector('.js-loader');
 const btnSearchUp = document.querySelector('.js-search-up');
 
+listEl.addEventListener('click', onOpenLargeImg);
+
+function onOpenLargeImg (e) {
+  const { target } = e;
+
+  if (target.classList.contains('list')) return;
+
+
+  console.log(target.closest('.list__item').dataset.largeImage);
+}
+
+
 let inputValue = '';
 let page = 1;
 
