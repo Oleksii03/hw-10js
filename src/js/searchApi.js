@@ -1,12 +1,12 @@
 import { getFetchPhoto } from "./fetchFn";
 import { createMarcup } from "./createMarcup";
+import throttle from "lodash.throttle";
 
 const formEl = document.querySelector('.js-form');
 const listEl = document.querySelector('.js-list');
 const btnLoadMore = document.querySelector('.js-load-more');
 const loaderEl = document.querySelector('.js-loader');
 const btnSearchUp = document.querySelector('.js-search-up');
-// const btnEl = document.querySelector('.js-form__btn');
 
 let inputValue = '';
 let page = 1;
@@ -68,18 +68,20 @@ function onLoadMore (e) {
 
 // -------scroll-event------------------------------------
 
-document.addEventListener('scroll', onScrollBtnOpen);
+const throttleScroll = throttle(onScrollBtnOpen, 400);
+
+document.addEventListener('scroll', throttleScroll);
 btnSearchUp.addEventListener('click', onScrollBtnClose);
 
 function onScrollBtnOpen (e) {
   console.log(scrollY);
   if (scrollY > 500) {
     btnSearchUp.classList.add('is-visible');
-    document.removeEventListener('scroll', onScrollBtnOpen);
+    document.removeEventListener('scroll', throttleScroll);
   }
 };
 
 function onScrollBtnClose (e) {
   btnSearchUp.classList.remove('is-visible');
-  document.addEventListener('scroll', onScrollBtnOpen);
+  document.addEventListener('scroll', throttleScroll);
 }
