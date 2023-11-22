@@ -1,5 +1,3 @@
-import { listEl } from "./searchApi";
-
 const API_KEY = '33184193-09093e83ff1c2949d43a02918';
 const BASE_URL = 'https://pixabay.com/api/';
 

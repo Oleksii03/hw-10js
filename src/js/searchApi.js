@@ -2,9 +2,10 @@ import { getFetchPhoto } from "./fetchFn";
 import { createMarcup } from "./createMarcup";
 
 const formEl = document.querySelector('.js-form');
-export const listEl = document.querySelector('.js-list');
+const listEl = document.querySelector('.js-list');
 const btnLoadMore = document.querySelector('.js-load-more');
 const loaderEl = document.querySelector('.js-loader');
+const btnSearchUp = document.querySelector('.js-search-up');
 // const btnEl = document.querySelector('.js-form__btn');
 
 let inputValue = '';
@@ -64,3 +65,21 @@ function onLoadMore (e) {
       loaderEl.classList.add('is-hidden');
     });
 };
+
+// -------scroll-event------------------------------------
+
+document.addEventListener('scroll', onScrollBtnOpen);
+btnSearchUp.addEventListener('click', onScrollBtnClose);
+
+function onScrollBtnOpen (e) {
+  console.log(scrollY);
+  if (scrollY > 500) {
+    btnSearchUp.classList.add('is-visible');
+    document.removeEventListener('scroll', onScrollBtnOpen);
+  }
+};
+
+function onScrollBtnClose (e) {
+  btnSearchUp.classList.remove('is-visible');
+  document.addEventListener('scroll', onScrollBtnOpen);
+}
