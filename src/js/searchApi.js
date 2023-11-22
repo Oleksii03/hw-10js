@@ -87,6 +87,6 @@ function onScrollBtnOpen (e) {
 };
 
 function onScrollBtnClose (e) {
-  // btnSearchUp.classList.remove('is-visible');
+  btnSearchUp.classList.remove('is-visible');
   document.addEventListener('scroll', throttleScroll);
 }
