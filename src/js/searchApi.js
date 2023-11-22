@@ -68,7 +68,7 @@ function onLoadMore (e) {
 
 // -------scroll-event------------------------------------
 
-const throttleScroll = throttle(onScrollBtnOpen, 400);
+const throttleScroll = throttle(onScrollBtnOpen, 300);
 
 document.addEventListener('scroll', throttleScroll);
 btnSearchUp.addEventListener('click', onScrollBtnClose);
