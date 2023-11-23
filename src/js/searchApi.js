@@ -9,7 +9,7 @@ const loaderEl = document.querySelector('.js-loader');
 const btnSearchUp = document.querySelector('.js-search-up');
 const backdropEl = document.querySelector('.js-backdrop');
 
-// ---------------------------------------------------------
+// ---------OpenLargeImg------------------------------------------------
 
 listEl.addEventListener('click', onOpenLargeImg);
 
