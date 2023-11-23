@@ -9,22 +9,6 @@ const loaderEl = document.querySelector('.js-loader');
 const btnSearchUp = document.querySelector('.js-search-up');
 const backdropEl = document.querySelector('.js-backdrop');
 
-// ---------OpenLargeImg------------------------------------------------
-
-listEl.addEventListener('click', onOpenLargeImg);
-
-function onOpenLargeImg (e) {
-  const { target } = e;
-
-  if (target.classList.contains('list')) return;
-  const modalImg = backdropEl.querySelector('.modal__img');
-
-  const largeImgUrl = target.closest('.list__item').dataset.largeImage;
-
-  backdropEl.classList.remove('backdrop_hidden');
-
-  modalImg.src = largeImgUrl;
-}
 
 // -------SEARCH-API---------------------------------------
 
@@ -105,4 +89,35 @@ function onScrollBtnOpen (e) {
 function onScrollBtnClose (e) {
   btnSearchUp.classList.remove('is-visible');
   document.addEventListener('scroll', throttleScroll);
+}
+
+// ---------OpenLargeImg------------------------------------------------
+
+listEl.addEventListener('click', onOpenLargeImg);
+
+function onOpenLargeImg (e) {
+  const { target } = e;
+
+  if (target.classList.contains('list')) return;
+  const modalImg = backdropEl.querySelector('.modal__img');
+
+  const largeImgUrl = target.closest('.list__item').dataset.largeImage;
+
+  backdropEl.classList.remove('backdrop_hidden');
+
+  modalImg.src = largeImgUrl;
+}
+
+// ----------CLOSE-MODAL-----------------------------------
+
+backdropEl.addEventListener('click', onCloseModal);
+
+function onCloseModal (e) {
+  const { target, currentTarget } = e;
+
+  if (!target.classList.contains('backdrop')) return;
+
+  if (target === currentTarget) {
+    currentTarget.classList.add('backdrop_hidden');
+  }
 }
