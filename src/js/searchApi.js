@@ -89,7 +89,6 @@ function onScrollBtnOpen (e) {
 };
 
 function onScrollBtnClose (e) {
-  // e.preventDefault();
   document.addEventListener('scroll', throttleScroll);
 }
 
