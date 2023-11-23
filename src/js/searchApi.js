@@ -80,10 +80,6 @@ btnSearchUp.addEventListener('click', onScrollBtnClose);
 function onScrollBtnOpen (e) {
   console.log(scrollY);
 
-  // if (scrollY === 0) {
-  //   btnSearchUp.classList.remove('is-visible');
-  // }
-
   if (scrollY > 700) {
     btnSearchUp.classList.add('is-visible');
     document.removeEventListener('scroll', throttleScroll);
@@ -91,9 +87,10 @@ function onScrollBtnOpen (e) {
 };
 
 function onScrollBtnClose (e) {
-  setTimeout(() => {
-    btnSearchUp.classList.remove('is-visible');
-  }, 250);
+  // e.preventDefault();
+
+  btnSearchUp.classList.remove('is-visible');
+
   document.addEventListener('scroll', throttleScroll);
 }
 
