@@ -134,6 +134,8 @@
 
   background-color: #000000cb;
   z-index: 10;
+
+  transition: all 200ms linear;
 }
 
 .backdrop_hidden {
@@ -148,6 +150,8 @@
   left: 50%;
 
   transform: translate(-50%, -50%);
+
+  outline: 2px solid #ffffff;
 }
 
 .modal__img {
