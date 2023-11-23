@@ -72,7 +72,7 @@ function onLoadMore (e) {
 
 // -------scroll-event------------------------------------
 
-const throttleScroll = throttle(onScrollBtnOpen, 300);
+const throttleScroll = throttle(onScrollBtnOpen, 400);
 
 document.addEventListener('scroll', throttleScroll);
 btnSearchUp.addEventListener('click', onScrollBtnClose);
@@ -80,7 +80,9 @@ btnSearchUp.addEventListener('click', onScrollBtnClose);
 function onScrollBtnOpen (e) {
   console.log(scrollY);
 
-  if (scrollY > 700) {
+  btnSearchUp.classList.remove('is-visible');
+
+  if (scrollY > 500) {
     btnSearchUp.classList.add('is-visible');
     document.removeEventListener('scroll', throttleScroll);
   }
@@ -88,9 +90,6 @@ function onScrollBtnOpen (e) {
 
 function onScrollBtnClose (e) {
   // e.preventDefault();
-
-  btnSearchUp.classList.remove('is-visible');
-
   document.addEventListener('scroll', throttleScroll);
 }
 
