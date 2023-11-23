@@ -100,6 +100,8 @@ function onScrollBtnClose (e) {
 listEl.addEventListener('click', onOpenLargeImg);
 
 function onOpenLargeImg (e) {
+  e.preventDefault();
+
   const { target } = e;
 
   if (target.classList.contains('list')) return;
