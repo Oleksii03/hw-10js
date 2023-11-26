@@ -13,10 +13,25 @@
   <p><a href="../index.html">Go back</a></p>
 
   <div class="container">
-    <select class="breed-select"></select>
-    <p class="loader">Loading data, please wait...</p>
-    <p class="error">Oops! Something went wrong! Try reloading the page!</p>
-    <div class="cat-info"></div>
+
+    <select class="breed-select">
+
+    </select>
+
+    <!-- <p class="loader">Loading data, please wait...</p>
+    <p class="error">Oops! Something went wrong! Try reloading the page!</p> -->
+
+    <div class="cat-info js-cat-info">
+      <picture class="cat-info__img">
+        <img class="cat__img" src="#" alt="#" />
+      </picture>
+
+      <div class="cat-info__content">
+        <h3 class="cat-info__name"></h3>
+        <p class="cat-info__discr"></p>
+        <p class="cat-info__temp"></p>
+      </div>
+    </div>
   </div>
 
   <script src="../index.js" type="module"></script>
