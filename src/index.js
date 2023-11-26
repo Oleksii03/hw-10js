@@ -2,7 +2,7 @@ import { fetchBreeds, fetchCatByBreed } from "./js/cat-api";
 
 const selectEl = document.querySelector('.breed-select');
 const boxInfo = document.querySelector('.js-cat-info');
-const catImg = document.querySelector('.cat__img');
+// const catImg = document.querySelector('.cat__img');
 
 // ----------------------------------------
 
@@ -35,7 +35,7 @@ function createMarkupBody ({ url, breeds }) {
       <picture class="cat-info__img">
         <img class="cat__img" src="${url}" alt="${name}" />
       </picture>
-
+     
       <div class="cat-info__content">
         <h3 class="cat-info__name">${name}</h3>
         <br>
