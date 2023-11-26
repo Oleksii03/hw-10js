@@ -22,11 +22,26 @@ function createMarkup (data) {
 selectEl.addEventListener('change', (e) => {
 
   fetchCatByBreed(e.target.value)
-    .then((data) => data[0])
-    .then(({ url, breeds }) => {
-      const { description, temperament, name } = breeds[0];
-
-      console.log(url, description, temperament, name);
+    .then((data) => {
+      boxInfo.innerHTML = createMarkupBody(data[0]);
     })
     .catch((err) => console.error(err));
 });
+
+function createMarkupBody ({ url, breeds }) {
+  const { description, temperament, name } = breeds[0];
+
+  return `
+      <picture class="cat-info__img">
+        <img class="cat__img" src="${url}" alt="${name}" />
+      </picture>
+
+      <div class="cat-info__content">
+        <h3 class="cat-info__name">${name}</h3>
+        <br>
+        <p class="cat-info__discr">${description}</p>
+        <br>
+        <p class="cat-info__temp">${temperament}</p>
+      </div>
+  `;
+};
