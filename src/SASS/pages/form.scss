@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .header {
   background-color: #1922219e;
   padding: 10px;
@@ -88,6 +92,7 @@
 }
 
 .search-up {
+  display: none;
   position: fixed;
   right: 20px;
   bottom: 42px;
@@ -95,8 +100,7 @@
   width: 40px;
   height: 40px;
 
-  transform: translateX(170%);
-  transition: transform 500ms linear;
+  transition: all 500ms linear;
 
   text-align: center;
   border-radius: 50%;
@@ -104,10 +108,31 @@
   font-size: 25px;
   color: #e5e1e1;
   background-color: rgba(223, 79, 6, 0.799);
+
+  animation-name: btnVisible;
+  animation-duration: 300ms;
+  animation-timing-function: linear;
+
+  animation-timeline: scroll(block nearest);
+}
+
+@keyframes btnVisible {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
 }
 
 .is-visible {
-  transform: translateX(0%);
+  display: block;
 }
 
 .footer {

@@ -80,7 +80,7 @@ btnSearchUp.addEventListener('click', onScrollBtnClose);
 function onScrollBtnOpen (e) {
   console.log(scrollY);
 
-  btnSearchUp.classList.remove('is-visible');
+  // btnSearchUp.classList.remove('is-visible');
 
   if (scrollY > 500) {
     btnSearchUp.classList.add('is-visible');
